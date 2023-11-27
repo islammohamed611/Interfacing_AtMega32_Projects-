@@ -69,7 +69,7 @@ void main(void)
 		CLCD_voidClearScreen();
 		CLCD_voidSetPosition(CLCD_ROW_1,CLCD_COL_1);
 		MODE_vidTask();
-		_delay_ms(100);
+		_delay_ms(500);
 	}
 
 }

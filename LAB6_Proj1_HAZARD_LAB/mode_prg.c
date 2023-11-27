@@ -65,6 +65,13 @@ extern SW_Type H_SW ;
 /******************************************************************************/
 void APP_vidSetMode(MODE_enutModeState enutSetMode)
 {
+	/*
+ IDLE = 0,
+    RIGHT_BLINK,
+    LEFT_BLINK,
+    HAZZARD_BLINK
+
+	 **/
 	switch(enutSetMode)
 	{
 	/* Switch to the Mode  */
@@ -75,20 +82,24 @@ void APP_vidSetMode(MODE_enutModeState enutSetMode)
 		break;
 	case  RIGHT_BLINK :
 		CLCD_voidSendString("Right");
+		SSD_voidDisable(L_SSD);
+		SSD_voidEnable(R_SSD);
 		SSD_voidSendNumber(R_SSD,0);
 		break ;
 	case  LEFT_BLINK :
 
 		CLCD_voidSendString("Left");
+		SSD_voidEnable(L_SSD);
+		SSD_voidDisable(R_SSD);
 		SSD_voidSendNumber(L_SSD,0);
 		break ;
 	case HAZZARD_BLINK :
+		CLCD_voidSendString("Hazard");
 		SSD_voidEnable(L_SSD);
 		SSD_voidEnable(R_SSD);
-		CLCD_voidSendString("Hazard");
 		SSD_voidSendNumber(L_SSD,0);
 		SSD_voidSendNumber(R_SSD,0);
-
+		break;
 	}
 
 }
@@ -109,6 +120,7 @@ void MODE_vidIdle (void)
 	}
 	else if (SW_u8GetPressed(H_SW))
 	{
+		Previus_enumMode = IDLE ;
 		enum_Modes = HAZZARD_BLINK;
 	}
 }
@@ -119,15 +131,15 @@ void MODE_vidRightBlink (void)
 	/* Check the SWs */
 
 
-	 if (SW_u8GetPressed(L_SW))
-		{
-			enum_Modes = IDLE;
-		}
-	if (SW_u8GetPressed(H_SW))
-		{
-			Previus_enumMode =RIGHT_BLINK;
-			enum_Modes =  HAZZARD_BLINK;
-		}
+	if (SW_u8GetPressed(L_SW))
+	{
+		enum_Modes = IDLE;
+	}
+	else if (SW_u8GetPressed(H_SW))
+	{
+		Previus_enumMode =RIGHT_BLINK;
+		enum_Modes =  HAZZARD_BLINK;
+	}
 }
 void MODE_vidLeftBlink (void)
 {
@@ -135,11 +147,11 @@ void MODE_vidLeftBlink (void)
 	APP_vidSetMode(LEFT_BLINK);
 	/* Check the SWs */
 
-	 if (SW_u8GetPressed(R_SW))
+	if (SW_u8GetPressed(R_SW))
 	{
 		enum_Modes = IDLE;
 	}
-	if (SW_u8GetPressed(H_SW))
+	else if (SW_u8GetPressed(H_SW))
 	{
 		Previus_enumMode =LEFT_BLINK;
 		enum_Modes =  HAZZARD_BLINK;
@@ -151,18 +163,18 @@ void MODE_vidHazardBlink (void)
 	/* Set Mode to HAZZARD_BLINK */
 	APP_vidSetMode(HAZZARD_BLINK);
 	/* Check the SWs */
-	 if (SW_u8GetPressed(R_SW))
+	if (SW_u8GetPressed(R_SW))
 	{
 		enum_Modes = HAZZARD_BLINK;
 	}
-	 if (SW_u8GetPressed(H_SW))
-	 {
-		 enum_Modes = Previus_enumMode;
-	 }
-	if (SW_u8GetPressed(L_SW))
+	else if (SW_u8GetPressed(L_SW))
 	{
 
-		enum_Modes =  HAZZARD_BLINK;
+		enum_Modes =  HAZZARD_BLINK ;
+	}
+	else if (SW_u8GetPressed(H_SW))
+	{
+		enum_Modes = Previus_enumMode;
 	}
 
 }
@@ -178,7 +190,8 @@ void MODE_vidHazardBlink (void)
 void MODE_vidInit(void)
 {
 	/* Set Mode to Default (IDLE) */
-	enum_Modes = IDLE;
+	enum_Modes = IDLE ;
+	APP_vidSetMode(IDLE);
 }
 
 /******************************************************************************/

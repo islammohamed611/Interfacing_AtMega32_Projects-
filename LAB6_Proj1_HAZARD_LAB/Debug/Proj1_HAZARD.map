@@ -165,7 +165,7 @@ LOAD d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x50da
+.text           0x00000000     0x514e
  *(.vectors)
  .vectors       0x00000000       0x54 d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -367,42 +367,42 @@ LOAD d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
                 0x00004b62                main
  .text.vidInit  0x00004c70       0x76 ./main.o
  .text.APP_vidSetMode
-                0x00004ce6      0x148 ./mode_prg.o
+                0x00004ce6      0x1aa ./mode_prg.o
                 0x00004ce6                APP_vidSetMode
  .text.MODE_vidIdle
-                0x00004e2e       0x66 ./mode_prg.o
-                0x00004e2e                MODE_vidIdle
+                0x00004e90       0x6a ./mode_prg.o
+                0x00004e90                MODE_vidIdle
  .text.MODE_vidRightBlink
-                0x00004e94       0x4c ./mode_prg.o
-                0x00004e94                MODE_vidRightBlink
+                0x00004efa       0x4e ./mode_prg.o
+                0x00004efa                MODE_vidRightBlink
  .text.MODE_vidLeftBlink
-                0x00004ee0       0x4c ./mode_prg.o
-                0x00004ee0                MODE_vidLeftBlink
+                0x00004f48       0x4e ./mode_prg.o
+                0x00004f48                MODE_vidLeftBlink
  .text.MODE_vidHazardBlink
-                0x00004f2c       0x64 ./mode_prg.o
-                0x00004f2c                MODE_vidHazardBlink
+                0x00004f96       0x68 ./mode_prg.o
+                0x00004f96                MODE_vidHazardBlink
  .text.MODE_vidInit
-                0x00004f90       0x12 ./mode_prg.o
-                0x00004f90                MODE_vidInit
+                0x00004ffe       0x18 ./mode_prg.o
+                0x00004ffe                MODE_vidInit
  .text.MODE_vidTask
-                0x00004fa2       0x44 ./mode_prg.o
-                0x00004fa2                MODE_vidTask
- .text.libgcc   0x00004fe6        0x0 d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00004fe6        0x0 d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00004fe6        0x0 d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .text.libgcc   0x00004fe6       0x3e d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
-                0x00004fe6                __mulsi3
- .text.libgcc   0x00005024       0x44 d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
-                0x00005024                __udivmodsi4
- .text.libgcc   0x00005068       0x38 d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x00005068                __prologue_saves__
- .text.libgcc   0x000050a0       0x36 d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x000050a0                __epilogue_restores__
-                0x000050d6                . = ALIGN (0x2)
+                0x00005016       0x44 ./mode_prg.o
+                0x00005016                MODE_vidTask
+ .text.libgcc   0x0000505a        0x0 d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x0000505a        0x0 d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000505a        0x0 d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x0000505a       0x3e d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+                0x0000505a                __mulsi3
+ .text.libgcc   0x00005098       0x44 d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x00005098                __udivmodsi4
+ .text.libgcc   0x000050dc       0x38 d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x000050dc                __prologue_saves__
+ .text.libgcc   0x00005114       0x36 d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x00005114                __epilogue_restores__
+                0x0000514a                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000050d6        0x0 d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x000050d6                exit
-                0x000050d6                _exit
+ .fini9         0x0000514a        0x0 d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x0000514a                exit
+                0x0000514a                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -421,11 +421,11 @@ LOAD d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000050d6        0x4 d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x0000514a        0x4 d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000050da                _etext = .
+                0x0000514e                _etext = .
 
-.data           0x00800060      0x17a load address 0x000050da
+.data           0x00800060      0x17a load address 0x0000514e
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -520,8 +520,8 @@ LOAD d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
                 0x008001da                enum_Modes
                 0x008001db                Previus_enumMode
                 0x008001dc                PROVIDE (__bss_end, .)
-                0x000050da                __data_load_start = LOADADDR (.data)
-                0x00005254                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0000514e                __data_load_start = LOADADDR (.data)
+                0x000052c8                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x008001dc        0x0
                 0x008001dc                PROVIDE (__noinit_start, .)
@@ -546,7 +546,7 @@ LOAD d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x2910
+.stab           0x00000000     0x2958
  *(.stab)
  .stab          0x00000000     0x1008 ./CLCD_program.o
  .stab          0x00001008      0xbf4 ./DIO_program.o
@@ -557,8 +557,8 @@ LOAD d:/progrms/empedded/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
                                 0x4f8 (size before relaxing)
  .stab          0x00002160      0x324 ./main.o
                                 0x5ac (size before relaxing)
- .stab          0x00002484      0x48c ./mode_prg.o
-                                0x564 (size before relaxing)
+ .stab          0x00002484      0x4d4 ./mode_prg.o
+                                0x5ac (size before relaxing)
 
 .stabstr        0x00000000     0x10c3
  *(.stabstr)
