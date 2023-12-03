@@ -65,6 +65,7 @@ int main ()
 		{
 			CLCD_voidSendData(KPD_Value);
 			switch (KPD_Value)
+			{
 			case '1':
 				Leds_off();
 				LED_voidOn(LED1);
@@ -97,6 +98,7 @@ int main ()
 				Leds_off();
 				LED_voidOn(LED8);
 				break;
+			}
 		}
 	}
 }
