@@ -13,37 +13,41 @@
 #include "ADC_interface.h"
 
 LED_Type LED1 = {LED_PORTA,LED_PIN0,ACTIVE_HIGH};
-LED_Type LM = {ADC_CHANNEL0, AVCC,ADC_RESOLUTION_10_BIT};
-void APP_Init ()
+LED_Type LM = {ADC_CHANNEL0, AVCC,ADC_RESOLUTION_8_BIT};
+static void APP_Init ()
 {
+	ADC_voidInit();
 	LED_voidInit(LED1);
 	CLCD_voidInit();
-	ADC_voidInit();
+	LED_voidOff(LED1);
 
 
 }
 
 void main (void)
 {
+	u8 LM_V;
 	APP_Init();
-	u8 Local_u8ADCReading;
-	ADC_voidEnable();
+	CLCD_voidSendString((u8 *)"islam mohamed");
+
 	while (1)
 	{
 
-		Local_u8ADCReading=LM35_u8GetTemp(LM,Local_u8ADCReading);
-		CLCD_voidSendData(Local_u8ADCReading);
-		if (Local_u8ADCReading >=20)
-		{
-			LED_voidOn(LED1);
+CLCD_voidSendString((u8 *)"Temp=");
+LM35_u8GetTemp(&LM,&LM_V);
+CLCD_voidSendNumber(LM_V);
 
+CLCD_voidSendString((u8 *)"  C");
 
-		}
-		else
-		{
+if (LM_V >=20)
+{
+	LED_voidOn(LED1);
+}
+else {
+	LED_voidOff(LED1);
+}
 
-			LED_voidOff(LED1);
-		}
 	}
+
 }
 
