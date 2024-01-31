@@ -82,15 +82,15 @@ void APP_voidPeriodicTask(void)
 				CLCD_voidSetPosition(CLCD_ROW_1,CLCD_COL_1);
 				CLCD_voidSendString((u8*)"you Can Move Now");
 
-				LED_voidOn(PedesGreen_Led);
+				LED_voidOn(Pedes_Green_Led);
 				PedesGreen_Led  =LED_ACTIVE;
-				LED_voidOff(PedesRed_Led);
-				Pedes_Red_Led = LED_IDLE;
+				LED_voidOff(Pedes_Red_Led);
+				PedesRed_Led = LED_IDLE;
 				LED_voidOff(Pedes_Yellow_Led);
 				PedesYellow_Led= LED_IDLE;
 
 				LED_voidOn(CAR_RED_LED);
-				CAR_RED_LED = LED_ACTIVE;
+				CAR_Red_Led = LED_ACTIVE;
 				LED_voidOff(CAR_GREEN_LED);
 				CAR_Green_Led = LED_IDLE;
 				LED_voidOff(CAR_YELLOW_LED);
@@ -105,18 +105,18 @@ void APP_voidPeriodicTask(void)
 				CLCD_voidSendString((u8*)"Don Not Move");
 
 				LED_voidOn(Pedes_Red_Led);
-				Pedes_Red_Led LED_ACTIVE;
-				LED_voidOff(PedesGreen_Led);
+				PedesRed_Led = LED_ACTIVE;
+				LED_voidOff(Pedes_Green_Led);
 				PedesGreen_Led = LED_IDLE;
 				LED_voidOff(Pedes_Yellow_Led);
 				PedesYellow_Led= LED_IDLE;
 
 				LED_voidOn(CAR_GREEN_LED);
-				CAR_GREEN_LED = LED_ACTIVE;
-				LED_voidOff(CAR_Red_Led);
+				CAR_Green_Led = LED_ACTIVE;
+				LED_voidOff(CAR_GREEN_LED);
 				CAR_Red_Led = LED_IDLE;
 				LED_voidOff(CAR_YELLOW_LED);
-				CAR_YELLOW_LED = LED_IDLE;
+				CAR_Yellow_Led = LED_IDLE;
 
 			}
 			else if ((Modes_Counter >10) && (Modes_Counter <=15))
@@ -125,18 +125,18 @@ void APP_voidPeriodicTask(void)
 				CLCD_voidSendString((u8*)"Wait....");
 
 				LED_voidOn(Pedes_Yellow_Led);
-				Pedes_Yellow_Led LED_ACTIVE;
-				LED_voidOff(PedesGreen_Led);
+				PedesYellow_Led = LED_ACTIVE;
+				LED_voidOff(Pedes_Green_Led);
 				PedesGreen_Led = LED_IDLE;
 				LED_voidOff(Pedes_Red_Led);
-				Pedes_Red_Led= LED_IDLE;
+				PedesRed_Led= LED_IDLE;
 
 				LED_voidOn(CAR_YELLOW_LED);
-				CAR_YELLOW_LED = LED_ACTIVE;
-				LED_voidOff(CAR_Red_Led);
+				CAR_Yellow_Led = LED_ACTIVE;
+				LED_voidOff(CAR_RED_LED);
 				CAR_Red_Led = LED_IDLE;
 				LED_voidOff(CAR_GREEN_LED);
-				CAR_GREEN_LED = LED_IDLE;
+				CAR_Green_Led = LED_IDLE;
 
 				//Reset Modes Counter
 				if (Modes_Counter ==15)
@@ -148,13 +148,13 @@ void APP_voidPeriodicTask(void)
 			{
 				CLCD_voidSetPosition(CLCD_ROW_1,CLCD_COL_1);
 				CLCD_voidSendString((u8*)"Wait....");
-				LED_voidOff(PedesRed_Led);
+				LED_voidOff(Pedes_Red_Led);
 				PedesRed_Led = LED_IDLE;
 				LED_voidOff( Pedes_Green_Led);
 				PedesGreen_Led = LED_IDLE;
 
 				LED_voidToggle(CAR_YELLOW_LED);
-				LED_voidToggle(PedesYellow_Led);
+				LED_voidToggle(Pedes_Yellow_Led);
 
 				// reset Modes Counter
 				if (Modes_Counter ==20)
@@ -165,7 +165,7 @@ void APP_voidPeriodicTask(void)
 			}
 			break;
 		case  PEDESTRIAN_MODE :
-			if ((CAR_RED_LED == LED_ACTIVE) && (CAR_GREEN_LED ==LED_IDLE) && (CAR_YELLOW_LED == LED_IDLE))
+			if ((CAR_Red_Led == LED_ACTIVE) && (CAR_Green_Led ==LED_IDLE) && (CAR_Yellow_Led == LED_IDLE))
 			{
 				Modes_Counter =0;
 				Mood_State = NORMAL_MODE ;
